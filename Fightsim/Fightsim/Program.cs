@@ -12,6 +12,10 @@ namespace Fightsim
     {
         static void Main(string[] args)
         {
+
+            bool KillCheckA = true;
+            bool KillCheckB = true;
+
             Console.WriteLine("WELCOME TO: 'So u want smoke huh?'");
             Thread.Sleep(1000);
             Console.WriteLine("Name yoself:");
@@ -25,6 +29,22 @@ namespace Fightsim
             Fighter f2 = new Fighter();
 
             f2.name = Console.ReadLine();
+
+            while (KillCheckA == true && KillCheckB == true)
+            {
+                f1.Hurt(f1.Attack());
+
+                Console.WriteLine(f1.name + " health: " + f1.getHp());
+
+                f2.Hurt(f2.Attack());
+
+                Console.WriteLine(f2.name + " health: " + f2.getHp());
+
+                KillCheckA = f1.isAlive();
+                KillCheckB = f2.isAlive();
+            }
+
+
         }
     }
 }

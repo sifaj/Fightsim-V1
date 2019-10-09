@@ -22,17 +22,26 @@ namespace Fightsim
 
         public void Hurt (int amount)
         {
-
+            hp = hp - amount;
         }
 
         public bool isAlive()
         {
+            if (hp > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
 
         }
 
         public int getHp()
         {
-
+            return hp;
         }
     }
 }
