@@ -8,7 +8,7 @@ namespace Fightsim
 {
     class Fighter
     {
-        int hp = 0;
+        int hp = 100;
 
         public string name = "";
 
@@ -23,6 +23,11 @@ namespace Fightsim
         public void Hurt (int amount)
         {
             hp = hp - amount;
+
+            if (hp < 0)
+            {
+                hp = 0;
+            }
         }
 
         public bool isAlive()

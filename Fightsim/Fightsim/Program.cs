@@ -36,6 +36,9 @@ namespace Fightsim
 
                 Console.WriteLine(f1.name + " health: " + f1.getHp());
 
+                KillCheckA = f1.isAlive();
+                KillCheckB = f2.isAlive();
+
                 f2.Hurt(f2.Attack());
 
                 Console.WriteLine(f2.name + " health: " + f2.getHp());
@@ -43,6 +46,17 @@ namespace Fightsim
                 KillCheckA = f1.isAlive();
                 KillCheckB = f2.isAlive();
             }
+
+            if (f1.getHp() > f2.getHp())
+            {
+                Console.WriteLine("Congratulations " + f1.name + "!");
+            }
+            else
+            {
+                Console.WriteLine("Congratulations " + f2.name + "!");
+            }
+
+            Console.ReadLine();
 
 
         }
