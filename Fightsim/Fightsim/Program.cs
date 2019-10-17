@@ -13,9 +13,6 @@ namespace Fightsim
         static void Main(string[] args)
         {
 
-            bool KillCheckA = true;
-            bool KillCheckB = true;
-
             Console.WriteLine("WELCOME TO: 'So u want smoke huh?'");
             Thread.Sleep(1000);
             Console.WriteLine("Name yoself:");
@@ -30,21 +27,16 @@ namespace Fightsim
 
             f2.name = Console.ReadLine(); // Spelaren får välja namn.
 
-            while (KillCheckA == true && KillCheckB == true)  // Själva loopen som kör spelet, där f1 och f2 skadar varandra tills en av dem når 0 hp.
+            while (f1.isAlive() == true && f2.isAlive() == true)  // Själva loopen som kör spelet, där f1 och f2 skadar varandra tills en av dem når 0 hp.
             {
                 f1.Hurt(f2.Attack()); // f1 förlorar damage 
 
                 Console.WriteLine(f1.name + " health: " + f1.getHp());
 
-                KillCheckA = f1.isAlive(); // KillCheckA/B körs genom metoden isALive(), vilket gör att de kan returnas som false och därmed avlsluta loopen.
-                KillCheckB = f2.isAlive();
-
                 f2.Hurt(f1.Attack());
 
                 Console.WriteLine(f2.name + " health: " + f2.getHp());
 
-                KillCheckA = f1.isAlive();
-                KillCheckB = f2.isAlive();
             }
 
             if (f1.getHp() > f2.getHp()) // f1 gratuleras om f2 når 0 hp först.

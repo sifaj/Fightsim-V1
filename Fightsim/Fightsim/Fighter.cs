@@ -44,7 +44,7 @@ namespace Fightsim
 
         }
 
-        public int getHp()
+        public int getHp() // Returnar hp.
         {
             return hp;
         }
