@@ -12,19 +12,19 @@ namespace Fightsim
 
         public string name = "";
 
-        Random generator = new Random(); // En random generator för att slumpa värdet för bl.a hur mycket skada fighter dealar
+        static Random generator = new Random(); // En random generator för att slumpa värdet för bl.a hur mycket skada fighter dealar. 
 
 
         public int Attack()
         {
-            return generator.Next(100);
+            return generator.Next(101); // Returnar ett värde mellan 0 och 100. 
         }
 
         public void Hurt (int amount)
         {
-            hp = hp - amount;
+            hp = hp - amount; // Subtraherar hp med värdet amount.
 
-            if (hp < 0)
+            if (hp < 0) //Om hp hamnar under 0 korrigeras det till 0.
             {
                 hp = 0;
             }
@@ -32,12 +32,12 @@ namespace Fightsim
 
         public bool isAlive()
         {
-            if (hp > 0)
+            if (hp > 0) // Om hp är över 0 returnas true.
             {
                 return true;
             }
 
-            else
+            else // Om hp är under 0 returnas false.
             {
                 return false;
             }
